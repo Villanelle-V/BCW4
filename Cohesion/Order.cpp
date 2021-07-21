@@ -55,7 +55,7 @@ ostream& operator<<(ostream& out, const Order& order) {
     out << order.getId();
 
 	for (set<Item*>::iterator it = items.begin(); it != items.end(); it++) {
-		cout << ', ' << *(*it);
+		cout << ' ' << *(*it);
 	}
 	return out;
 }
