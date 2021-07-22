@@ -1,24 +1,15 @@
 #include "SpellCaster.h"
 
-SpellCaster::SpellCaster(const std::string& name) {
-    this->damage = 10;
-    this->hitPoints = 150;
-    this->hitPointsLimit = 150;
-    this->name = name;
-    this->magicDamage = 20;
-}
-
-SpellCaster::SpellCaster() {
-    this->damage = 10;
-    this->hitPoints = 150;
-    this->hitPointsLimit = 150;
-    this->name = "SpellCasler";
+SpellCaster::SpellCaster(const char* name, int hitPoints, int damage):
+    Unit(name, hitPoints, damage) {
+    this->magicDamage = 25;
+   // this->state = new State(name, hitPoints, damage, this);
 }
 
 SpellCaster::~SpellCaster() {}
 
 int SpellCaster::getMagicDamage() const {
-    return this->damage;
+    return this->magicDamage;
 }
 
 std::ostream& operator<<(std::ostream& out, const SpellCaster& spellCusler) {

@@ -9,8 +9,7 @@ class SpellCaster: public Unit {
 protected:
     int magicDamage;
 public:
-    SpellCaster(const std::string& name);
-    SpellCaster();
+    SpellCaster(const char* name="Spell Caster", int hitPoints=150, int damage=20);
     ~SpellCaster();
     int getMagicDamage() const;
 };
@@ -18,3 +17,4 @@ public:
 std::ostream& operator<<(std::ostream& out, const SpellCaster& unit);
 
 #endif // !SPELL_CASLER_H
+

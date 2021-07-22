@@ -1,17 +1,23 @@
-#ifndef UNIT_H
-#define UNIT_H
+#ifndef STATE_HPP
+#define STATE_HPP
 
-#include <iostream>
-#include "State.h"
+#include "Unit.h"
 
-class State;
+class Unit;
 
-class Unit {
+class State {
 protected:
-    State* state;
+    const char* name;
+    int hitPoints;
+    int hitPointsLimit;
+    int damage;
+
+    void ensureIsAlive();
+    Unit* owner;
+
 public:
-    Unit(const char* name, int hitPoints, int damage);
-    virtual ~Unit();
+    State(const char* name, int hitPoints, int damage, Unit* owner);
+    virtual ~State();
 
     const char* getName() const;
     int getHitPoints() const;
@@ -25,7 +31,6 @@ public:
     virtual void counterAttack(Unit* enemy);
 };
 
-std::ostream& operator<<(std::ostream& out, const Unit& unit);
 
-#endif // UNIT_H
+#endif // STATE_HPP
 

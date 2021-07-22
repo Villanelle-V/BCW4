@@ -1,7 +1,6 @@
 #include "Soldier.h"
 
-Soldier::Soldier(const std::string& name) {
-	this->name = name;
-}
+Soldier::Soldier(const char* name, int hitPoints, int damage):
+	Unit(name, hitPoints, damage) {}
 
 Soldier::~Soldier() {}
