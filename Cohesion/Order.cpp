@@ -14,10 +14,9 @@ Order::Order(Customer* customer, Item* item) {
 }
 
 Order::~Order() {
-	set<Item*>::iterator it = this->items->begin();
-
-	for (; it != this->items->end(); it++) {
-		(*it)->deleteInOrder(this);
+	for (auto it : *items) {
+		delete it;
+		it = nullptr;
 	}
 
 	allOrders.erase(this);
@@ -46,7 +45,7 @@ void Order::deleteItem(Item* item) {
 	item->deleteInOrder(this);
 }
 
-const set<Order*>& Order::getAllOrders() {
+set<Order*>& Order::getAllOrders() {
 		return allOrders;
 }
 
@@ -61,4 +60,4 @@ ostream& operator<<(ostream& out, const Order& order) {
 }
 
 string Order::nextId = "0 order";
-set<Order*>Order::allOrders = set<Order*>();
+set<Order*>Order::allOrders;

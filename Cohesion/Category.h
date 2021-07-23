@@ -12,8 +12,14 @@ class Item;
 
 class InvalidCategory {
 public:
-	std::string text;
+	string text;
 	InvalidCategory(const std::string& text) : text(text) {}
+};
+
+class OutOfItems {
+public:
+	string text;
+	OutOfItems(const std::string& text) : text(text) {}
 };
 
 class Category {
@@ -27,14 +33,15 @@ public:
 
 	Category(const string& name);
 	~Category();
-	const string getName() const;
+
+	const string& getName() const;
 	string getId() const;
 	const set<Item*>& getItems() const;
 
 	void addItem(Item* item);
 	void deleteItem(Item* item);
 
-	static const set<Category*>& getCategories();
+	static const set<Category*>& getAllCategories();
 };
 
 ostream& operator<<(ostream& out, const Category& category);

@@ -8,10 +8,9 @@ Customer::Customer(const string& name) : name(name) {
 	allCustomers.insert(this);
 }
 Customer::~Customer() {
-	set<Order*>::iterator it = orders->begin();
-
-	for (; it != orders->end(); it++) {
-		delete* it;
+	for (auto it: *orders) {
+		delete it;
+		it = nullptr;
 	}
 
 	allCustomers.erase(this);
@@ -34,7 +33,7 @@ void Customer::addOrder(Order* order) {
 	this->orders->insert(order);
 }
 
-const set<Customer*>& Customer::getAllCustomers() {
+set<Customer*>& Customer::getAllCustomers() {
 	return allCustomers;
 }
 
@@ -51,4 +50,4 @@ ostream& operator<<(ostream& out, const Customer& customer) {
 }
 
 string Customer::nextCustomerId = "0 Customer";
-set<Customer*> Customer::allCustomers = set<Customer*>();
+set<Customer*> Customer::allCustomers;

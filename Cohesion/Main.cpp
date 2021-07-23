@@ -1,3 +1,4 @@
+#include <iostream>
 #include <set>
 #include <string>
 #include "Category.h"
@@ -6,7 +7,7 @@
 #include "Customer.h"
 
 int main() {
-	Category *fruit = new Category("fruit");
+	Category* fruit = new Category("fruit");
 	Category* plant = new Category("plant");
 
 	Item* banana = new Item("banana", fruit);
@@ -17,7 +18,7 @@ int main() {
 	Customer* alina = new Customer("Alina");
 	Customer* artem = new Customer("Artem");
 
-	Order* first = new Order(artem, banana);
+	Order* first = new Order(artem, potato);
 
 	first->addItem(potato);
 
@@ -25,7 +26,10 @@ int main() {
 
     std::cout << *artem << std::endl;
 
-	std::cout << Item::nextId << std::endl;
+	std::cout << Item::getAllItems << std::endl;
+
+	std::cout << Category::nextId << std::endl;
+	std::cout << Category::getAllCategories << std::endl;
 
 	delete fruit;
 	delete plant;

@@ -1,18 +1,18 @@
 all: main.out
 
-main.out: Category.o Item.o Order.o Customer.o
+main.out: 
     g++ -o main.cpp *.o -o main.out 
 
-Category.o:
+.o:
     g++ -c Category.cpp
 
-Item.o:
+.o:
     g++ -c Item.cpp
 
-Order.o:
+.o:
     g++ -c Order.cpp
 
-Customer.o:
+.o:
     g++ -c Customer.cpp
 
 clean:

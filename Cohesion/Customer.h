@@ -27,7 +27,7 @@ public:
 
 	void addOrder(Order* order);
 
-	static const set<Customer*>& getAllCustomers();
+	static set<Customer*>& getAllCustomers();
 };
 
 std::ostream& operator<<(std::ostream& out, const Customer& customer);

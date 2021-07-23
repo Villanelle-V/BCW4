@@ -30,7 +30,7 @@ public:
 	void addItem(Item* item);
 	void deleteItem(Item* item);
 
-	static const set<Order*>& getAllOrders();
+	static set<Order*>& getAllOrders();
 };
 
 ostream& operator<<(ostream& out, const Order& order);

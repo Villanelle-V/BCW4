@@ -33,7 +33,7 @@ public:
 	void addOrder(Order* order);
 	void deleteInOrder(Order* order);
 	
-	static const set<Item*>& getAllItems();
+	static set<Item*>& getAllItems();
 };
 
 std::ostream& operator<<(std::ostream& out, const Item& item);
