@@ -29,7 +29,7 @@ void Customer::addOrder(Order* order) {
 }
 
 set<Customer*>& Customer::getAllCustomers() {
-	return allCustomers;
+		return allCustomers;
 }
 
 ostream& operator<<(ostream& out, const Customer& customer) {
