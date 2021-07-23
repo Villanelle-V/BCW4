@@ -19,6 +19,10 @@ const char* State::getName() const {
     return this->name;
 }
 
+Unit* State::getOwner() const {
+    return this->owner;
+}
+
 int State::getHitPoints() const {
     return this->hitPoints;
 }
@@ -29,6 +33,10 @@ int State::getHitPointsLimit() const {
 
 int State::getDamage() const {
     return this->damage;
+}
+
+void State::setHitPoints(int hp) {
+    this->hitPoints += hp;
 }
 
 void State::takePhisicalDamage(int dmg) {
@@ -51,13 +59,13 @@ void State::takeMagicalDamage(int dmg) {
     this->hitPoints -= dmg;
 }
 
-void State::attack(Unit* enemy) {
-    this->ensureIsAlive();
-
-    enemy->takePhisicalDamage(this->getDamage());
-    enemy->counterAttack(this->owner);
-}
-
-void State::counterAttack(Unit* enemy) {
-    enemy->takePhisicalDamage(this->getDamage() / 2);
-}
+//void State::attack(Unit* enemy) {
+//    this->ensureIsAlive();
+//
+//    enemy->takePhisicalDamage(this->getDamage());
+//    enemy->counterAttack(this->owner);
+//}
+//
+//void State::counterAttack(Unit* enemy) {
+//    enemy->takePhisicalDamage(this->getDamage() / 2);
+//}//

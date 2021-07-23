@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "State.h"
+#include "BaseAttack.h"
+#include "Observable.h"
 
 class State;
 
@@ -17,12 +19,13 @@ public:
     int getHitPoints() const;
     int getHitPointsLimit() const;
     int getDamage() const;
+    State* getState() const;
 
     virtual void takePhisicalDamage(int dmg);
     virtual void takeMagicalDamage(int dmg);
 
-    virtual void attack(Unit* enemy);
-    virtual void counterAttack(Unit* enemy);
+    virtual void attack(Unit* enemy) = 0;
+    virtual void counterAttack(Unit* enemy) = 0;
 };
 
 std::ostream& operator<<(std::ostream& out, const Unit& unit);

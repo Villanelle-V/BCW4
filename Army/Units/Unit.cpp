@@ -10,6 +10,10 @@ const char* Unit::getName() const {
     return this->state->getName();
 }
 
+State* Unit::getState() const {
+    return this->state;
+}
+
 int Unit::getDamage() const {
     return this->state->getDamage();
 }
@@ -28,13 +32,13 @@ void Unit::takeMagicalDamage(int dmg) {
     this->state->takeMagicalDamage(dmg);
 }
 
-void Unit::attack(Unit* enemy) {
-    this->state->attack(enemy);
-}
-
-void Unit::counterAttack(Unit* enemy) {
-    this->state->counterAttack(enemy);
-}
+//void Unit::attack(Unit* enemy) {
+//    this->state->attack(enemy);
+//}
+//
+//void Unit::counterAttack(Unit* enemy) {
+//    this->state->counterAttack(enemy);
+//}
 
 std::ostream& operator<<(std::ostream& out, const Unit& unit) {
     out << unit.getName() << "'s power is\t " << unit.getDamage() << ", his points:\t" << unit.getHitPoints() << ".";

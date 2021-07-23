@@ -2,6 +2,7 @@
 #define STATE_HPP
 
 #include "Unit.h"
+#include "BaseAttack.h"
 
 class Unit;
 
@@ -20,17 +21,21 @@ public:
     virtual ~State();
 
     const char* getName() const;
+    Unit* getOwner() const;
     int getHitPoints() const;
     int getHitPointsLimit() const;
     int getDamage() const;
 
+    void setHitPoints(int hp);
+
     virtual void takePhisicalDamage(int dmg);
     virtual void takeMagicalDamage(int dmg);
 
-    virtual void attack(Unit* enemy);
-    virtual void counterAttack(Unit* enemy);
+    virtual void transform(Unit* owner, Unit* enemy) = 0;
+
+    //virtual void attack(Unit* enemy);
+    //virtual void counterAttack(Unit* enemy);
 };
 
 
 #endif // STATE_HPP
-

@@ -1,8 +1,8 @@
 #ifndef ROGUE_H
 #define ROGUE_H
 
-#include "Unit.h"
-#include "RogueState.h"
+#include "../Unit/Unit.h"
+#include "../States/RogueState.h"
 
 class Rogue : public Unit {
 public:
