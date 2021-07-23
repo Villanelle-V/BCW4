@@ -59,7 +59,5 @@ int main() {
 		std::cout << *factor << std::endl;
 	}
 
-	std::cout << factor.result() << std::endl;
-
 	return 0;
 }

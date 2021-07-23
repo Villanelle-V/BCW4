@@ -103,3 +103,12 @@ public:
         return value();
     }
 };
+
+int main() {
+    PrimeIt it(10);
+    for (; !it.over(); it++ ) {
+        std::cout << *it << std::endl;
+    }
+    return 0;
+}
+

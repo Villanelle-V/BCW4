@@ -45,13 +45,11 @@ public:
 };
 
 int main() {
-	FactorialIterator factor(5);
+	FibonacciIt fib(5);
 
-	for (; !factor.over(); factor++) {
-		std::cout << *factor << std::endl;
+	for (; !fib.over(); fib++) {
+		std::cout << *fib << std::endl;
 	}
-
-	std::cout << factor.result() << std::endl;
 
 	return 0;
 }
