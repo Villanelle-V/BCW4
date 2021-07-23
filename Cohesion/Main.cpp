@@ -27,7 +27,7 @@ int main() {
 
 	std::cout << Category::nextId << std::endl;
 	std::cout << *fruit << std::endl;
-	std::cout << Customer::getAllCustomers) << std::endl;
+	std::cout << Customer::getAllCustomers << std::endl;
 
 	delete fruit;
 	delete vegetable;
