@@ -8,11 +8,6 @@ Category::Category(const string& name) : name(name) {
 	allCategories.insert(this);
 }
 Category::~Category() {
-	for (auto it : *items) {
-		delete it;
-		it = nullptr;
-	}
-
 	allCategories.erase(this);
 }
 
@@ -49,13 +44,12 @@ const set<Category*>& Category::getAllCategories() {
 
 ostream& operator<<(ostream& out, const Category& category) {
 	set<Item*> items = category.getItems();
-	out << "Category: " << category.getName();
 
 	set<Item*>::iterator it = items.begin();
 
 	for ( ; it != items.end(); it++) {
-		out << "Category ID : " << (*it)->getId();
-		out << "Category name: " << (*it)->getName();
+		out << "Category name: " << category.getName();
+		out << ", items in category: " << *(*it);
 	}
 		return out;
 }

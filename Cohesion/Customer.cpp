@@ -8,11 +8,6 @@ Customer::Customer(const string& name) : name(name) {
 	allCustomers.insert(this);
 }
 Customer::~Customer() {
-	for (auto it: *orders) {
-		delete it;
-		it = nullptr;
-	}
-
 	allCustomers.erase(this);
 };
 
@@ -39,12 +34,11 @@ set<Customer*>& Customer::getAllCustomers() {
 
 ostream& operator<<(ostream& out, const Customer& customer) {
 	set<Order*> orders = customer.getOrders();
-	out << "Customer " << customer.getName() << " has orders: ";
 
 	set<Order*>::iterator it = orders.begin();
 
 	for ( ; it != orders.end(); it++ ) {
-		out << "Customer has orders:" << *(*it) << ", ";
+		out << "Customer " << customer.getName() << " has orders: " << *(*it);
 	}
 	return out;
 }

@@ -2,9 +2,10 @@
 
 Order::Order(Customer* customer, Item* item) {
 	this->customer = customer;
-	this->addItem(item);
-	item->addOrder(this);
 	customer->addOrder(this);
+	this->item = item;
+
+	item->addOrder(this);
 	items = new set<Item*>();
 
 	nextId[0] += 1;
@@ -14,11 +15,6 @@ Order::Order(Customer* customer, Item* item) {
 }
 
 Order::~Order() {
-	for (auto it : *items) {
-		delete it;
-		it = nullptr;
-	}
-
 	allOrders.erase(this);
 }
 
@@ -51,10 +47,13 @@ set<Order*>& Order::getAllOrders() {
 
 ostream& operator<<(ostream& out, const Order& order) {
 	set<Item*> items = order.getItems();
-    out << order.getId();
 
-	for (set<Item*>::iterator it = items.begin(); it != items.end(); it++) {
-		cout << ' ' << *(*it);
+	set<Item*>::iterator it = items.begin();
+
+	out << order.getId();
+
+	for ( ; it != items.end(); it++ ) {
+		out << ". items in order:" << *(*it);
 	}
 	return out;
 }

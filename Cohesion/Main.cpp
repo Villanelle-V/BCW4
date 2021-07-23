@@ -8,13 +8,12 @@
 
 int main() {
 	Category* fruit = new Category("fruit");
-	Category* plant = new Category("plant");
+	Category* vegetable = new Category("plant");
 
 	Item* banana = new Item("banana", fruit);
-	Item* potato = new Item("potato", plant);
-	Item* tomato = new Item("tomato", plant);
+	Item* potato = new Item("potato", vegetable);
+	Item* tomato = new Item("tomato", vegetable);
 
-	Customer* roman = new Customer("Roman");
 	Customer* alina = new Customer("Alina");
 	Customer* artem = new Customer("Artem");
 
@@ -22,22 +21,20 @@ int main() {
 
 	first->addItem(potato);
 
-	std::cout << artem->getId() << std::endl;
+	artem->addOrder(first);
 
-    std::cout << *artem << std::endl;
-
-	std::cout << Item::getAllItems << std::endl;
+	std::cout << *(first->getCustomer()) << std::endl;
 
 	std::cout << Category::nextId << std::endl;
-	std::cout << Category::getAllCategories << std::endl;
+	std::cout << *fruit << std::endl;
+	std::cout << *(*Customer::getAllCustomers) << std::endl;
 
 	delete fruit;
-	delete plant;
+	delete vegetable;
 	delete banana;
 	delete potato;
 	delete tomato;
 	delete artem;
-	delete roman;
 	delete alina;
 
 	return 0;

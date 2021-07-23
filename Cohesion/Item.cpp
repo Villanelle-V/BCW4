@@ -13,10 +13,6 @@ Item::Item(const std::string& name, Category* category) {
 }
 
 Item::~Item() {
-	for (auto it : *orders) {
-		delete it;
-		it = nullptr;
-	}
 	allItems.erase(this);
 }
 
@@ -44,16 +40,12 @@ void Item::deleteInOrder(Order* order) {
 	this->orders->erase(order);
 }
 
-set<Item*>& Item::getAllItems() {
+const set<Item*>& Item::getAllItems() {
 	return allItems;
 }
-std::ostream& operator<<(std::ostream& out, const Item& item) {
-	set<Order*> orders = item.getOrders();
-	out << "Item: " << item.getName() << " in Category: " << item.getCategory();
 
-	for (set<Order*>::iterator it = orders.begin(); it != orders.end(); it++) {
-		cout << ' ' << *(*it);
-	}
+ostream& operator<<(ostream& out, const Item& item) {
+		out << " Item '" << item.getName() << "'";
 	return out;
 }
 

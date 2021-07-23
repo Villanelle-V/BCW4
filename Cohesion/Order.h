@@ -16,11 +16,12 @@ private:
 	string id;
 	set<Item*>* items;
 	Customer* customer;
+	Item* item;
 	static set<Order*> allOrders;
 public:
 	static string nextId;
 
-	Order(Customer* customer, Item* items);
+	Order(Customer* customer, Item* item);
 	~Order();
 
 	string getId() const;
